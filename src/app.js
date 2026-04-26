@@ -1,12 +1,11 @@
-
-app.get("/", (req, res) => {
-  res.send("API de Estudiantes funcionando 🚀");
-});
-
 const express = require("express");
 const app = express();
 
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("API de Estudiantes funcionando 🚀");
+});
 
 const studentRoutes = require("./routes/students");
 app.use("/students", studentRoutes);
@@ -14,5 +13,6 @@ app.use("/students", studentRoutes);
 module.exports = app;
 
 if (require.main === module) {
-  app.listen(3000, () => console.log("API corriendo en puerto 3000"));
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
 }
