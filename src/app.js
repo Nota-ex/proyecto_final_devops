@@ -1,3 +1,8 @@
+
+app.get("/", (req, res) => {
+  res.send("API de Estudiantes funcionando 🚀");
+});
+
 const express = require("express");
 const app = express();
 
